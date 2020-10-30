@@ -14,8 +14,4 @@ class Solution:
                 else:
                     rows[grp_size-j] += grp[j] 
         
-        result = ''
-        for row in rows:
-            result += row
-        
-        return result
+        return ''.join(rows)
