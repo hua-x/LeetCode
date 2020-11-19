@@ -2,6 +2,7 @@
 
 # (1). iteratively divide by 10
 # Runtime: 32ms, Memory: 14mb
+# It turns out ** is faster than pow function.
 def reverse(self, x: int) -> int:
 	tmp = -x if x <0 else x
 	sign = -1 if x <0 else 1
@@ -25,6 +26,15 @@ def reverse(self, x: int) -> int:
 
 
 # (2). through string function
-#
+# Runtime: 32m, Memory 14.2mb. worse than (1)
 
+def reverse(self, x: int) -> int:
+	sign = [-1,1][x>0]
+	tmp = sign*x
 
+	final_num = int(str(tmp)[::-1]) 
+
+	if final_num > -2**31 and final_num < 2**31 - 1 :
+	    return sign*final_num
+	else:
+	    return 0
